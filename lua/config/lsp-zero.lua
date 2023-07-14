@@ -12,6 +12,8 @@ lsp.ensure_installed({
 
 -- Fix Undefined global 'vim'
 lsp.nvim_workspace()
+-- view virtual text in the screen
+--lsp.diagnostic.show_line_diagnostics()
 
 
 local cmp = require('cmp')
@@ -58,6 +60,6 @@ end)
 lsp.setup()
 
 vim.diagnostic.config({
-    virtual_text = true
+    virtual_text = true,
 })
 
