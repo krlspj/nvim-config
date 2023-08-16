@@ -1,4 +1,4 @@
-.PHONY: clean backup
+.PHONY: clean backup local-backup
 
 clean:
 	rm -rf ~/.local/share/nvim
@@ -9,6 +9,13 @@ backup:
 	mv ~/.local/share/nvim{,.bak}
 	mv ~/.local/state/nvim{,.bak}
 	mv ~/.cache/nvim{,.bak}
+
+local-backup:
+	mv ~/.config/nvim{,.bak}
+	mv ~/.local/share/nvim{,.bak}
+	mv ~/.local/state/nvim{,.bak}
+	mv ~/.cache/nvim{,.bak}
+
 
 #clean:
 #	# required
