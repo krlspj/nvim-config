@@ -9,6 +9,7 @@
 --vim.g.syntastic_c_checkers = { 'norminette', 'gcc' }
 --vim.g.syntastic_aggregate_errors = 0
 
+--- --[[
 -- Set the path to norminette (do not set if using norminette of 42 mac)
 vim.g.syntastic_c_norminette_exec = 'norminette'
 
@@ -32,3 +33,4 @@ vim.g.syntastic_auto_loc_list = 1
 -- Skip check when closing
 vim.g.syntastic_check_on_wq = 0
 
+--- --]]
