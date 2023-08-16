@@ -1,4 +1,9 @@
-return {
-    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-    "nvim-treesitter/playground",
+local M = {
+    "nvim-treesitter/nvim-treesitter",
+    build = function()
+        require("nvim-treesitter.install").update({ with_sync = true })
+    end,
+	"nvim-treesitter/playground",
 }
+
+return { M }
