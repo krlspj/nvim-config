@@ -12,6 +12,15 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = true
 
+-- Enable list mode and set characters to display
+vim.opt.list = false
+vim.opt.listchars:append('eol:¬')
+
+-- Additional listchars configuration
+vim.opt.listchars:append('tab:»_')
+vim.opt.listchars:append('trail:·')
+-- Define custom highlight groups for list characters
+
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
