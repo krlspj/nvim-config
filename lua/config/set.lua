@@ -6,7 +6,7 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
---vim.opt.expandtab = true
+vim.opt.expandtab = false
 
 vim.opt.smartindent = true
 
@@ -15,9 +15,8 @@ vim.opt.wrap = true
 -- Enable list mode and set characters to display
 vim.opt.list = false
 vim.opt.listchars:append('eol:¬')
-
 -- Additional listchars configuration
-vim.opt.listchars:append('tab:»_')
+vim.opt.listchars:append('tab:».')
 vim.opt.listchars:append('trail:·')
 -- Define custom highlight groups for list characters
 
