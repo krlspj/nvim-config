@@ -35,6 +35,7 @@ require("config.treesitter")
 require("config.42header")
 require("config.norminette")
 require("config.maximize")
+require("config.copilot")
 
 
 --require("lazy").setup({
