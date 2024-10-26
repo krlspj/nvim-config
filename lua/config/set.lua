@@ -12,6 +12,11 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = true
 
+-- Set case-insensitive search
+vim.o.ignorecase = true
+-- Enable smart case: case-sensitive if uppercase is used in search
+vim.o.smartcase = true
+
 -- Enable list mode and set characters to display
 vim.opt.list = false
 --vim.opt.listchars:append('eol:¬')
@@ -39,3 +44,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
+
+-- run rust formtter when save file
+vim.cmd("autocmd BufWritePre *.rs lua vim.lsp.buf.format()")
+
