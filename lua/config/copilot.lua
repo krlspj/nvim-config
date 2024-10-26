@@ -6,4 +6,3 @@ vim.g.copilot_filetypes = { markdown = false , xml = true}
 -- vim.api.nvim_set_keymap("i", "<C-[>", 'copilot#Previous()', { silent = true, expr = true })
 -- vim.api.nvim_set_keymap("i", "<C-]>", 'copilot#Next()', { silent = true, expr = true })
 
-

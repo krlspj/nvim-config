@@ -15,13 +15,14 @@ vim.g.syntastic_c_norminette_exec = 'norminette'
 
 -- Support headers (.h)
 vim.g.c_syntax_for_h = 1
-vim.g.syntastic_c_include_dirs = { 'include', '../include', '../../include', 'libft', '../libft/include', '../../libft/include' }
+vim.g.syntastic_c_include_dirs = { 'include', '../include', '../../include', 'libft', '../libft/include', '../../libft/include', 'libs/libft', '../libs/libft'}
 
 -- Pass custom arguments to norminette (this one ignores 42header)
 vim.g.syntastic_c_norminette_args = '-R CheckTopCommentHeader'
 
 -- Check errors when opening a file (disable to speed up startup time)
 --vim.g.syntastic_check_on_open = 1
+-- Automatic error check
 vim.g.syntastic_check_on_open = 1
 
 -- Enable error list
