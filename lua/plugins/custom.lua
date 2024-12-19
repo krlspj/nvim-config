@@ -7,7 +7,15 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		opts = {
-			ensure_installed = { "lua_ls", "ts_ls", "jsonls", "rust_analyzer", "clangd", "gopls" },
+			ensure_installed = {
+				"lua_ls",
+				"ts_ls",
+				"jsonls",
+				"rust_analyzer",
+				"clangd",
+				"gopls",
+				"eslint",
+			},
 		},
 	},
 	{

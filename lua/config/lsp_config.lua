@@ -21,6 +21,7 @@ M.setup = function()
 		},
 		clangd = {},
 		gopls = {},
+		eslint = {},
 	}
 
 	-- LSP keymaps and attach configuration
@@ -54,7 +55,7 @@ M.setup = function()
 	-- Diagnostic configuration
 	vim.diagnostic.config({
 		float = {
-			-- border = "rounded",
+			border = "rounded",
 			-- You can customize colors too:
 			-- header = "",  -- Remove the 'Diagnostics:' header
 			-- prefix = "",  -- Remove the '[E]', '[W]' etc. prefixes
