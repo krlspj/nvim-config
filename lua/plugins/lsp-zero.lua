@@ -1,38 +1,79 @@
-return {
-  'VonHeikemen/lsp-zero.nvim',
-  branch = 'v2.x',
-  dependencies = {
-    -- LSP Support
-    {'neovim/nvim-lspconfig'},             -- Required
-    {'williamboman/mason.nvim'},           -- Optional
-    {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-    -- Autocompletion
-    {'hrsh7th/nvim-cmp'},     -- Required
-    {'hrsh7th/cmp-nvim-lsp'}, -- Required
-    {'L3MON4D3/LuaSnip'},     -- Required
-  }
-}
--- return {
--- 	{
--- 		'VonHeikemen/lsp-zero.nvim',
--- 		branch = 'v2.x',
--- 		dependencies = {
--- 				-- LSP Support
--- 				{'neovim/nvim-lspconfig'},             -- Required
--- 				{                                      -- Optional
--- 				'williamboman/mason.nvim',
--- 				build = function()
--- 					pcall(vim.cmd, 'MasonUpdate')
--- 				end,
--- 			},
--- 			{'williamboman/mason-lspconfig.nvim'}, -- Optional
--- 
--- 			-- Autocompletion
--- 			{'hrsh7th/nvim-cmp'},     -- Required
--- 			{'hrsh7th/cmp-nvim-lsp'}, -- Required
--- 			{'L3MON4D3/LuaSnip'},     -- Required
--- 		}
--- 	}
--- }
+--return {
+--	'VonHeikemen/lsp-zero.nvim',
+--	branch = 'v2.x',
+--	dependencies = {
+--		-- LSP Support
+--		{
+--			'neovim/nvim-lspconfig',
+--			--dependencies = {
+--			--	-- 'IgorChubin/eslint-lsp',
+--			--},
+--			--print("nvim-lspconfig function executing 0!"),
+--			--			config = function()
+--			--				print("nvim-lspconfig function executing 1!")
+--			--				local lspconfig = require("lspconfig")
+--			--				lspconfig.eslint.setup {
+--			--					disable = true,
+--			--				}
+--			--				--require ''
+--			--
+--			--				--				local lspconfig = require("lspconfig")
+--			--				--				lspconfig.eslint.setup({
+--			--				--					settings = {
+--			--				--						rules = {
+--			--				--							semi = { "error", "always" }
+--			--				--						}
+--			--				--					}
+--			--				--				})
+--			--			end
+--		}, -- Required
+--		{
+--			"williamboman/mason.nvim",
+--			--opts = {
+--			--	ensure_installed = {
+--			--		"eslint-lsp",
+--			--		"prettier",
+--			--		"tailwindcss-language-server",
+--			--		"typescript-language-server",
+--			--	}
+--			--}
+--		},
+--		{
+--			'williamboman/mason-lspconfig.nvim',
+--			--config = function()
+--			--	require("mason-lspconfig").setup({
+--			--		ensure_installed = { "eslint-lsp" } -- Automatically install eslint-lsp
+--			--	})
+--			--end
+--		}, -- Optional
 --
+--		-- Autocompletion
+--		{ 'hrsh7th/nvim-cmp' }, -- Required
+--		{ 'hrsh7th/cmp-nvim-lsp' }, -- Required
+--		{ 'L3MON4D3/LuaSnip' }, -- Required
+--	}
+--}
+---- return {
+---- 	{
+---- 		'VonHeikemen/lsp-zero.nvim',
+---- 		branch = 'v2.x',
+---- 		dependencies = {
+---- 				-- LSP Support
+---- 				{'neovim/nvim-lspconfig'},             -- Required
+---- 				{                                      -- Optional
+---- 				'williamboman/mason.nvim',
+---- 				build = function()
+---- 					pcall(vim.cmd, 'MasonUpdate')
+---- 				end,
+---- 			},
+---- 			{'williamboman/mason-lspconfig.nvim'}, -- Optional
+----
+---- 			-- Autocompletion
+---- 			{'hrsh7th/nvim-cmp'},     -- Required
+---- 			{'hrsh7th/cmp-nvim-lsp'}, -- Required
+---- 			{'L3MON4D3/LuaSnip'},     -- Required
+---- 		}
+---- 	}
+---- }
+----
+return {}
