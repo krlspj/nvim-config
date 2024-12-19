@@ -1,5 +1,9 @@
 return {
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{ "catppuccin/nvim",      name = "catppuccin", priority = 1000 },
+	{ "morhetz/gruvbox" },
+	{ "folke/tokyonight.nvim" },
+	{ "dracula/vim" }
+
 }
 --
 --vim.cmd.colorscheme "catppuccin"
