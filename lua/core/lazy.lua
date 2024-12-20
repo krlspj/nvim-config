@@ -40,6 +40,8 @@ require("config.copilot")
 -- setup must be called before loading
 --vim.cmd.colorscheme "catppuccin"
 vim.cmd("colorscheme gruvbox")
+--vim.cmd("colorscheme retrobox")
+--vim.cmd("colorscheme tokyonight-storm")
 
 --require("lazy").setup({
 --	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
