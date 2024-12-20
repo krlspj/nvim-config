@@ -29,7 +29,7 @@ require("lazy").setup({
 require("config.set")
 require("config.remap")
 require("config.colortheme")
---require("config.lsp-zero")
+--require("config.lsp-zero") -- @deprecated
 require("config.telescope")
 require("config.treesitter")
 require("config.42header")
