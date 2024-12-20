@@ -1,4 +1,6 @@
-require("core.lazy")
+--require("core.lazy")
+require("krls.core.init")
+require("krls.lazy")
 
 -- local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 -- if not vim.loop.fs_stat(lazypath) then
