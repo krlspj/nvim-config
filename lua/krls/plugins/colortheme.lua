@@ -1,5 +1,5 @@
 local function set_theme()
-	local default_theme = "gruvbox"
+	local default_theme = "tokyonight-night"
 	print("loading color theme: " .. default_theme)
 	vim.cmd("colorscheme " .. default_theme)
 end
