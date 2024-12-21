@@ -4,6 +4,7 @@ vim.g.maplocalleader = " "
 local keymap = vim.keymap -- for conciseness
 
 keymap.set("n", "<leader>pv", vim.cmd.Ex)
+--keymap.set("n", "<leader>pv", "<cmd>Ex<CR>", { desc = "Open file explorer" })
 
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
