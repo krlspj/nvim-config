@@ -9,12 +9,12 @@ return {
 		opts = {
 			ensure_installed = {
 				"lua_ls",
-				"ts_ls",
-				"jsonls",
-				"rust_analyzer",
+				--"ts_ls",
+				--"jsonls",
+				--"rust_analyzer",
 				"clangd",
-				"gopls",
-				"eslint",
+				--"gopls",
+				--"eslint",
 			},
 		},
 	},
@@ -44,11 +44,11 @@ return {
 	},
 
 	-- None-ls (optional, for additional formatters/linters)
-	{
-		"nvimtools/none-ls.nvim",
-		event = "VeryLazy",
-		opts = function()
-			return require("krls.plugins.config.none_ls_config")
-		end,
-	},
+	--{
+	--	"nvimtools/none-ls.nvim",
+	--	event = "VeryLazy",
+	--	opts = function()
+	--		return require("krls.plugins.config.none_ls_config")
+	--	end,
+	--},
 }

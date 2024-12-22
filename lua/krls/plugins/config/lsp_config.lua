@@ -10,18 +10,18 @@ M.setup = function()
 				}
 			}
 		},
-		ts_ls = {},
-		jsonls = {},
-		rust_analyzer = {
-			["rust-analyzer"] = {
-				checkOnSave = {
-					command = "clippy",
-				},
-			},
-		},
+		--ts_ls = {},
+		--jsonls = {},
+		--rust_analyzer = {
+		--	["rust-analyzer"] = {
+		--		checkOnSave = {
+		--			command = "clippy",
+		--		},
+		--	},
+		--},
 		clangd = {},
-		gopls = {},
-		eslint = {},
+		--gopls = {},
+		--eslint = {},
 	}
 
 	-- LSP keymaps and attach configuration
