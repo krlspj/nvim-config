@@ -20,3 +20,15 @@ require("dracula").setup({
 })
 vim.cmd("colorscheme dracula")
 ```
+* special chars
+```
+vim.cmd([[
+  highlight SpecialChar guifg=#ff5555 ctermfg=9
+]])
+-- or
+require("dracula").setup({
+  overrides = {
+    SpecialChar = { fg = "#ff5555" }, -- Adjust this to a color that stands out.
+  },
+})
+```

@@ -30,7 +30,9 @@ return {
 					bg = "#1F1F1F",
 				},
 				overrides = {
-					CursorLine = {bg = "#2a2a2a"},
+					CursorLine = { bg = "#2a2a2a" },
+					SpecialChar = { fg = "#ff5555" },
+					-- SpecialChar = { fg = "#00ffee" },
 				},
 
 			})
