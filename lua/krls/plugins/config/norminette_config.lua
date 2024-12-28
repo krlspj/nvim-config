@@ -15,7 +15,7 @@ vim.g.syntastic_c_norminette_exec = 'norminette'
 
 -- Support headers (.h)
 vim.g.c_syntax_for_h = 1
-vim.g.syntastic_c_include_dirs = { 'include', '../include', '../../include', 'libft', '../libft/include', '../../libft/include', 'libs/libft', '../libs/libft', 'libs/readline', 'libs/libftprintf/include'}
+vim.g.syntastic_c_include_dirs = { 'include', '../include', '../../include', 'libft', '../libft/include', '../../libft/include', 'libs/libft', 'lib/libft', '../libs/libft', 'libs/readline', 'libs/libftprintf/include' }
 --vim.g.syntastic_c_include_dirs = { 'include', '../include', '../../include', 'libft', '../libft/include', '../../libft/include', 'libs/libft', '../libs/libft', '../libs/readline', '../libs/libftprintf/include'}
 
 -- Pass custom arguments to norminette (this one ignores 42header)

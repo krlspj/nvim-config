@@ -3,8 +3,13 @@ local M = {}
 M.setup = function()
 	local cmp = require("cmp")
 	local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
+	local luasnip = require("luasnip")
 	cmp.setup({
+		snippet = {
+			expand = function(args)
+				luasnip.lsp_expand(args.body) -- Use LuaSnip for snippet expansion
+			end,
+		},
 		window = {
 			completion = cmp.config.window.bordered(),
 			documentation = cmp.config.window.bordered(),

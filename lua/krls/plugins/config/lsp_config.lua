@@ -26,6 +26,7 @@ M.setup = function()
 
 	-- LSP keymaps and attach configuration
 	local on_attach = function(client, bufnr)
+		local _ = client -- discard unused client
 		local opts = { buffer = bufnr, remap = false }
 
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -40,6 +41,9 @@ M.setup = function()
 		vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 	end
 
+
+
+
 	-- Get capabilities from cmp_nvim_lsp
 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -51,6 +55,21 @@ M.setup = function()
 			settings = opts,
 		})
 	end
+
+--	local lspconfig = require("lspconfig")
+--	lspconfig.clangd.setup({
+--		on_attach = function(client, bufnr)
+--			local opts = { noremap = true, silent = true, buffer = bufnr }
+--			-- Bind "gd" to go to definition
+--			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+--			-- Bind "gD" to go to declaration
+--			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+--			-- Bind "gi" to go to implementation
+--			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+--			-- Bind "gr" to go to references
+--			vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+--		end,
+--	})
 
 	-- Diagnostic configuration
 	vim.diagnostic.config({
@@ -93,7 +112,6 @@ M.setup = function()
 			border = "rounded"
 		}
 	)
-
 end
 
 return M
