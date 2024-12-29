@@ -9,7 +9,7 @@ return {
 		opts = {
 			ensure_installed = {
 				"lua_ls",
-				--"ts_ls",
+				--"tsserver",
 				--"jsonls",
 				--"rust_analyzer",
 				"clangd",
