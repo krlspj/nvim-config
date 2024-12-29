@@ -9,7 +9,8 @@ return {
 		opts = {
 			ensure_installed = {
 				"lua_ls",
-				"ts_ls",
+				-- "ts_ls",
+				"tsserver", -- corressponds to ts_ls in lsp_config
 				"jsonls",
 				"rust_analyzer",
 				"clangd",
