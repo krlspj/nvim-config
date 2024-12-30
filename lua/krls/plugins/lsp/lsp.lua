@@ -44,6 +44,8 @@ return {
 	},
 
 	-- None-ls (optional, for additional formatters/linters)
+	-- ensure installed prettier to use the formatter:
+	-- npm install -g prettier
 	{
 		"nvimtools/none-ls.nvim",
 		event = "VeryLazy",
