@@ -26,10 +26,10 @@ mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts
 
 # Download Bitstream Vera Nerd Font
-wget -O Bitstream-Vera.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/BitstreamVeraSansMono.zip
+wget -O https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/BitstreamVeraSansMono.zip
 
 # Extract the font files
-unzip Bitstream-Vera.zip
+unzip BitstreamVeraSansMono.zip
 
 # Update the font cache
 fc-cache -fv
