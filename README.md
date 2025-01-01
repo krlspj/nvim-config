@@ -4,7 +4,8 @@ This neovim configuration implements the 42header and the norminette
 ## Colortheme
 
 ### How to Install Fonts for Neovim Plugins
-
+<details>
+<summary>How to install the fonts</summary>
 Some Neovim plugins, such as `nvim-web-devicons`, require **Nerd Fonts** to display icons properly. Follow these steps to install and configure the **Bitstream Vera Nerd Font**, a lightweight and clean font with added glyphs.
 
 ---
@@ -84,7 +85,7 @@ For system-wide font installation (accessible by all users):
 
 ## 6. Enjoy Enhanced Icons!
 With the Bitstream Vera Nerd Font installed and configured, your Neovim plugins can render beautiful icons seamlessly. If you encounter any issues, ensure the font is correctly set in your terminal and verify the plugin setup in Neovim.
-
+</details>
 
 ### Neovim colortheme commands
 
