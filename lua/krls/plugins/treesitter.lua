@@ -34,5 +34,19 @@ local M = {
 		}
 	end
 }
+--
+-- Autocommand to enable Tree-sitter highlighting for Go files
+-- `vim.schedule` ensures the command runs after all other queued tasks,
+-- avoiding potential conflicts with other configurations or delayed theme application.
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "go",
+	callback = function()
+		-- Schedule the execution to ensure it runs after other queued functions
+		vim.schedule(function()
+			print("exec custom go hightlight")
+			vim.cmd("TSEnable highlight")
+		end)
+	end,
+})
 
 return { M }
