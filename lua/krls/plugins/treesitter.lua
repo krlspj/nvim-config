@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	callback = function()
 		-- Schedule the execution to ensure it runs after other queued functions
 		vim.schedule(function()
-			print("exec custom go hightlight")
+			print("[debug] TSEnable hightlight on go files")
 			vim.cmd("TSEnable highlight")
 		end)
 	end,
