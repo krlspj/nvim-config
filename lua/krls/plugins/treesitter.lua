@@ -40,6 +40,7 @@ local M = {
 -- avoiding potential conflicts with other configurations or delayed theme application.
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "go",
+	once = true, -- recommended aproach to exec once
 	callback = function()
 		-- Schedule the execution to ensure it runs after other queued functions
 		vim.schedule(function()
@@ -49,4 +50,20 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- use flag to run once
+--local ts_hightlight_enabled = false
+--vim.api.nvim_create_autocmd("FileType", {
+--	pattern = "go",
+--	once = true,
+--	callback = function()
+--		if not ts_hightlight_enabled then
+--			-- Schedule the execution to ensure it runs after other queued functions
+--			vim.schedule(function()
+--				print("[debug] TSEnable hightlight on go files")
+--				vim.cmd("TSEnable highlight")
+--				ts_hightlight_enabled = true
+--			end)
+--		end
+--	end,
+--})
 return { M }
