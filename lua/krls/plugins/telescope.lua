@@ -32,6 +32,16 @@ return {
 		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cw" })
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under curson in cwd" })
 		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+
+		local builtin = require("telescope.builtin")
+		vim.api.nvim_create_user_command('TodoTelescope', function()
+			builtin.live_grep({
+				default_text = "// todo",
+				search = "TODO",
+				--search = "//\\s*(TODO|todo)(:?.*)?", -- search for TODOs
+				prompt_title = "Search TODOs",
+			})
+		end, { desc = "Search for TODO comments" })
 	end
 }
 --return {
