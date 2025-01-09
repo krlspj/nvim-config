@@ -25,6 +25,7 @@ return {
 
 		telescope.load_extension("fzf")
 
+		local builtin = require("telescope.builtin")
 		-- set keymap
 		local keymap = vim.keymap
 		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
@@ -32,8 +33,8 @@ return {
 		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cw" })
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under curson in cwd" })
 		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+		keymap.set("n", "<C-p>", builtin.grep_string, {})
 
-		local builtin = require("telescope.builtin")
 		vim.api.nvim_create_user_command('TodoTelescope', function()
 			builtin.live_grep({
 				default_text = "// todo",
