@@ -1,6 +1,6 @@
 local function set_theme(theme_name)
 	--local default_theme = "tokyonight-night"
-	print("loading color theme: " .. theme_name)
+	print("[debug] loading color theme: " .. theme_name)
 	vim.cmd("colorscheme " .. theme_name)
 end
 
