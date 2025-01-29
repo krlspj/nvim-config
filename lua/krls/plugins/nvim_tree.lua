@@ -1,3 +1,5 @@
+return {}
+--[[
 return {
 	"nvim-tree/nvim-tree.lua",
 	dependencies = "nvim-tree/nvim-web-devicons",
@@ -56,5 +58,4 @@ return {
 		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })                   -- refresh file explorer
 	end,
 }
-
---return {}
+--]]
