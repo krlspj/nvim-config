@@ -7,6 +7,8 @@
 -- For Azure OpenAI:
 -- export AZURE_OPENAI_API_KEY=your-api-key
 
+return {}
+--[[
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
@@ -56,3 +58,5 @@ return {
     },
   },
 }
+]]
+
