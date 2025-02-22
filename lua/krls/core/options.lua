@@ -54,7 +54,7 @@ opt.backspace = "indent,eol,start"
 --opt.splitbelow = true
 
 
-opt.scrolloff = 8
+opt.scrolloff = 3
 opt.signcolumn = "yes"
 opt.isfname:append("@-@")
 
