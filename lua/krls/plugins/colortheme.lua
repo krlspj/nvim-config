@@ -7,7 +7,8 @@ end
 vim.api.nvim_create_autocmd("User", {
 	pattern = "LazyVimStarted",
 	callback = function()
-		set_theme("tokyonight")
+		--set_theme("tokyonight")
+		set_theme("retrobox")
 	end,
 })
 -- this is a comment

@@ -20,7 +20,9 @@ M.setup = function()
 			},
 		},
 		clangd = {},
-		gopls = {},
+		gopls = {
+			--buildFlags = { "-tags=debug" }
+		},
 		eslint = {},
 	}
 
@@ -96,7 +98,6 @@ M.setup = function()
 			border = "rounded"
 		}
 	)
-
 end
 
 return M
