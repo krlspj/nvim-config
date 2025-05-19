@@ -1,5 +1,17 @@
 local M = {}
 
+-- configure golang build tags
+local build_tags = os.getenv("GO_BUILD_TAGS")
+local gopls_settings = {}
+
+if build_tags then
+  gopls_settings = {
+    gopls = {
+      buildFlags = { "-tags=" .. build_tags },
+    },
+  }
+end
+
 M.setup = function()
 	-- LSP server configurations
 	local servers = {
@@ -20,9 +32,13 @@ M.setup = function()
 			},
 		},
 		clangd = {},
-		gopls = {
-			--buildFlags = { "-tags=debug" }
-		},
+		gopls = gopls_settings,
+		--gopls = {
+		--	gopls = {
+		--		buildFlags = { "-tags=auditlog debug" },
+		--		-- dynamic  buildFlags = { "-tags=" .. (os.getenv("GO_BUILD_TAGS") or "auditlog debug") },
+		--	},
+		--},
 		eslint = {},
 	}
 
@@ -56,6 +72,17 @@ M.setup = function()
 			settings = opts,
 		})
 	end
+
+	-- Special case: gopls needs custom setup to apply buildFlags correctly
+	-- ** breaks the functionality <leader>vd -> review it before apply ** !!
+	--require("lspconfig").gopls.setup({
+	--	capabilities = capabilities,
+	--	settings = {
+	--		gopls = {
+	--			buildFlags = { "-tags=debug,auditlog" }
+	--		},
+	--	},
+	--})
 
 	-- Diagnostic configuration
 	vim.diagnostic.config({
