@@ -1,6 +1,6 @@
 local M = {}
 
--- configure golang build tags
+-- configure golang build tags ; ex: export GO_BUILD_TAGS="debug auditlog"
 local build_tags = os.getenv("GO_BUILD_TAGS")
 local gopls_settings = {}
 
