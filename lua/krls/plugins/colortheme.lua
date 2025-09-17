@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd("User", {
 	callback = function()
 		--set_theme("tokyonight")
 		set_theme("retrobox")
+		--set_theme("unokai")
 	end,
 })
 -- this is a comment
