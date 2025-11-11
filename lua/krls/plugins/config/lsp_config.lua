@@ -1,15 +1,18 @@
 local M = {}
 
+
+
+-- skip nomodelines (until 5)
 -- configure golang build tags ; ex: export GO_BUILD_TAGS="debug auditlog"
 local build_tags = os.getenv("GO_BUILD_TAGS")
 local gopls_settings = {}
 
 if build_tags then
-  gopls_settings = {
-    gopls = {
-      buildFlags = { "-tags=" .. build_tags },
-    },
-  }
+	gopls_settings = {
+		gopls = {
+			buildFlags = { "-tags=" .. build_tags },
+		},
+	}
 end
 
 M.setup = function()
@@ -31,7 +34,18 @@ M.setup = function()
 				},
 			},
 		},
-		clangd = {},
+		clangd = {"c", "cpp", "objc", "objecpp", "cuda", "tpp"},
+		--clangd = {
+		--	cmd = {
+		--		"clangd",
+		--		"--background-index",
+		--		"--suggest-missing-includes",
+		--		"--clang-tidy",
+		--		"--header-insertion=never",
+		--		"-xc++", -- 👈 force C++ mode (for .tpp, .hpp, etc.)
+		--	},
+		--	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "tpp" },
+		--},
 		gopls = gopls_settings,
 		--gopls = {
 		--	gopls = {
@@ -41,6 +55,7 @@ M.setup = function()
 		--},
 		eslint = {},
 	}
+
 
 	-- LSP keymaps and attach configuration
 	local on_attach = function(client, bufnr)
