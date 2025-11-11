@@ -62,6 +62,19 @@ opt.updatetime = 50
 
 opt.colorcolumn = "80"
 
+-- Treat .tpp files as C++ source files
+--vim.filetype.add({
+--  extension = {
+--    tpp = "cpp",
+--  },
+--})
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = "*.tpp",
+  callback = function()
+    vim.bo.filetype = "cpp"
+  end,
+})
+
 -- run rust formtter when save file
 vim.cmd("autocmd BufWritePre *.rs lua vim.lsp.buf.format()")
 
