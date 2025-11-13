@@ -16,46 +16,6 @@ if build_tags then
 end
 
 M.setup = function()
-	-- LSP server configurations
-	local servers = {
-		lua_ls = {
-			Lua = {
-				diagnostics = {
-					globals = { "vim" }
-				}
-			}
-		},
-		ts_ls = {},
-		jsonls = {},
-		rust_analyzer = {
-			["rust-analyzer"] = {
-				checkOnSave = {
-					command = "clippy",
-				},
-			},
-		},
-		clangd = {"c", "cpp", "objc", "objecpp", "cuda", "tpp"},
-		--clangd = {
-		--	cmd = {
-		--		"clangd",
-		--		"--background-index",
-		--		"--suggest-missing-includes",
-		--		"--clang-tidy",
-		--		"--header-insertion=never",
-		--		"-xc++", -- 👈 force C++ mode (for .tpp, .hpp, etc.)
-		--	},
-		--	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "tpp" },
-		--},
-		gopls = gopls_settings,
-		--gopls = {
-		--	gopls = {
-		--		buildFlags = { "-tags=auditlog debug" },
-		--		-- dynamic  buildFlags = { "-tags=" .. (os.getenv("GO_BUILD_TAGS") or "auditlog debug") },
-		--	},
-		--},
-		eslint = {},
-	}
-
 
 	-- LSP keymaps and attach configuration
 	local on_attach = function(client, bufnr)
@@ -79,25 +39,68 @@ M.setup = function()
 	-- Get capabilities from cmp_nvim_lsp
 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-	-- Setup each LSP server
-	for server, opts in pairs(servers) do
-		require("lspconfig")[server].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = opts,
-		})
-	end
+	-- -------------------------------------------------------------------------
+	-- Lua
+	-- -------------------------------------------------------------------------
+	vim.lsp.config.lua_ls = {
+		capabilities = capabilities,
+		on_attach    = on_attach,
+		settings     = {
+			Lua = {
+				diagnostics = { globals = { 'vim' } },
+			},
+		},
+	}
+	vim.lsp.enable 'lua_ls'
 
-	-- Special case: gopls needs custom setup to apply buildFlags correctly
-	-- ** breaks the functionality <leader>vd -> review it before apply ** !!
-	--require("lspconfig").gopls.setup({
-	--	capabilities = capabilities,
-	--	settings = {
-	--		gopls = {
-	--			buildFlags = { "-tags=debug,auditlog" }
-	--		},
-	--	},
-	--})
+	-- -------------------------------------------------------------------------
+	-- Go
+	-- -------------------------------------------------------------------------
+	vim.lsp.config.gopls = {
+		capabilities = capabilities,
+		on_attach    = on_attach,
+		setings = gopls_settings,
+	}
+	vim.lsp.enable 'gopls'
+
+	-- -------------------------------------------------------------------------
+	-- C/C++/CUDA/tpp
+	-- -------------------------------------------------------------------------
+	vim.lsp.config.clangd = {
+		capabilities = capabilities,
+		on_attach    = on_attach,
+		filetypes    = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'tpp' },
+	}
+	vim.lsp.enable 'clangd'
+
+	-- -------------------------------------------------------------------------
+	-- Rust
+	-- -------------------------------------------------------------------------
+	vim.lsp.config.rust_analyzer = {
+		capabilities = capabilities,
+		on_attach    = on_attach,
+		settings     = {
+			['rust-analyzer'] = {
+				checkOnSave = { command = 'clippy' },
+			},
+		},
+	}
+	vim.lsp.enable 'rust_analyzer'
+
+	-- -------------------------------------------------------------------------
+	-- eslint
+	-- -------------------------------------------------------------------------
+	vim.lsp.enable 'eslint'
+	-- -------------------------------------------------------------------------
+	-- ts_ls
+	-- -------------------------------------------------------------------------
+	vim.lsp.enable 'ts_ls'
+	-- -------------------------------------------------------------------------
+	-- jsonls 
+	-- -------------------------------------------------------------------------
+	vim.lsp.enable 'jsonls'
+
+	-- …add more servers the same way…
 
 	-- Diagnostic configuration
 	vim.diagnostic.config({
