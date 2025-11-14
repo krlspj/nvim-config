@@ -1,10 +1,10 @@
 local M = {
 	"nvim-treesitter/nvim-treesitter",
-	build = function()
-		require("nvim-treesitter.install").update({ with_sync = true })
-	end,
-	"nvim-treesitter/playground",
-
+	dependencies = { "nvim-treesitter/playground" },
+	build = ':TSUpdate',
+	--build = function()
+	--	require("nvim-treesitter.install").update({ with_sync = true })
+	--end,
 	config = function()
 		require 'nvim-treesitter.configs'.setup {
 			-- A list of parser names, or "all"
