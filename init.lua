@@ -1,4 +1,6 @@
-require("core.lazy")
+require("krls.init")
+	--require("krls.core.init")
+	--require("krls.lazy")
 
 -- local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 -- if not vim.loop.fs_stat(lazypath) then
@@ -12,13 +14,12 @@ require("core.lazy")
 --   })
 -- end
 -- vim.opt.rtp:prepend(lazypath)
--- 
+--
 -- -- [[ Basic Keymaps ]]
 -- -- Set <space> as the leader key
 -- -- see `:help mapleader`
 -- --  Note: Must happen before plugins are required (otherwise wrong leader will be used)
 -- vim.g.mapleader = ' '
 -- vim.g.maplocalleader = ' '
--- 
+--
 -- require("lazy").setup(plugins, opts)
-
