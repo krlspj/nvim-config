@@ -16,7 +16,6 @@ if build_tags then
 end
 
 M.setup = function()
-
 	-- LSP keymaps and attach configuration
 	local on_attach = function(client, bufnr)
 		_ = client
@@ -59,7 +58,7 @@ M.setup = function()
 	vim.lsp.config.gopls = {
 		capabilities = capabilities,
 		on_attach    = on_attach,
-		setings = gopls_settings,
+		setings      = gopls_settings,
 	}
 	vim.lsp.enable 'gopls'
 
@@ -81,7 +80,9 @@ M.setup = function()
 		on_attach    = on_attach,
 		settings     = {
 			['rust-analyzer'] = {
-				checkOnSave = { command = 'clippy' },
+				checkOnSave = {
+					command = 'clippy', -- <-- use 'clippy' or 'cargo check'
+				},
 			},
 		},
 	}
@@ -96,7 +97,7 @@ M.setup = function()
 	-- -------------------------------------------------------------------------
 	vim.lsp.enable 'ts_ls'
 	-- -------------------------------------------------------------------------
-	-- jsonls 
+	-- jsonls
 	-- -------------------------------------------------------------------------
 	vim.lsp.enable 'jsonls'
 
