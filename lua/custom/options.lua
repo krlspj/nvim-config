@@ -31,3 +31,9 @@ vim.o.expandtab = false
 
 -- load color scheme
 vim.cmd.colorscheme 'tokyonight-night'
+
+-- INFO: remaps ---
+-- right now using autopair plugin
+-- vim.keymap.set('i', '{', '{}<Left>')
+-- vim.keymap.set("i", "(", "()<Left>")
+-- vim.keymap.set("i", "[", "[]<Left>")
