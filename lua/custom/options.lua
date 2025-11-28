@@ -37,3 +37,25 @@ vim.cmd.colorscheme 'tokyonight-night'
 -- vim.keymap.set('i', '{', '{}<Left>')
 -- vim.keymap.set("i", "(", "()<Left>")
 -- vim.keymap.set("i", "[", "[]<Left>")
+
+-- INFO: telescope extra keymaps
+-- Search only inside the folder Nvim-tree is focussed on
+-- search FILES inside the netrw directory
+
+vim.keymap.set('n', '<leader>sF', function()
+  -- netrw exposes the current banner directory in b:netrw_curdir
+  local cwd = vim.b.netrw_curdir or vim.loop.cwd()
+  require('telescope.builtin').find_files {
+    cwd = cwd,
+    prompt_title = 'Files in ' .. vim.fn.fnamemodify(cwd, ':t'),
+  }
+end, { desc = '[S]earch [F]iles in netrw dir' })
+
+-- LIVE-GREP inside the netrw directory
+vim.keymap.set('n', '<leader>sG', function()
+  local cwd = vim.b.netrw_curdir or vim.loop.cwd()
+  require('telescope.builtin').live_grep {
+    cwd = cwd,
+    prompt_title = 'Grep in ' .. vim.fn.fnamemodify(cwd, ':t'),
+  }
+end, { desc = '[S]earch by [G]rep in netrw dir' })
