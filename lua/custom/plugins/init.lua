@@ -25,4 +25,12 @@ return {
       vim.keymap.set('n', '<leader>mm', ':Maximize<CR>', { noremap = true, silent = true })
     end,
   },
+  {
+    'ibhagwan/fzf-lua',
+    -- optional for icon support
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    -- or if using mini.icons/mini.nvim
+    -- dependencies = { "nvim-mini/mini.icons" },
+    opts = {},
+  },
 }
