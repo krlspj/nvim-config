@@ -33,4 +33,28 @@ return {
     -- dependencies = { "nvim-mini/mini.icons" },
     opts = {},
   },
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  {
+    'morhetz/gruvbox',
+    priority = 1000,
+    config = function() end,
+  },
+  {
+    'Mofiqul/dracula.nvim',
+    config = function()
+      local dracula = require 'dracula'
+      dracula.setup {
+        --variant = "soft",
+        colors = {
+          bg = '#1F1F1F',
+        },
+        overrides = {
+          CursorLine = { bg = '#2a2a2a' },
+          SpecialChar = { fg = '#ff5555' },
+          Special = { fg = '#09ff00', bold = false },
+          -- SpecialChar = { fg = "#00ffee" },
+        },
+      }
+    end,
+  },
 }
