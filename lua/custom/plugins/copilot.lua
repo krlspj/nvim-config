@@ -32,6 +32,6 @@ if isActive then
     },
   }
 else
-  print 'copilot is disable'
+  --print 'copilot is disable'
   return {}
 end

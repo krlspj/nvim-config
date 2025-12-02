@@ -61,7 +61,7 @@ if isActive then
     },
   }
 else
-  print 'avante is disable'
+  --print 'avante is disable'
   return {}
 end
 
