@@ -31,6 +31,9 @@ vim.o.expandtab = false
 
 -- load color scheme
 vim.cmd.colorscheme 'tokyonight-night'
+-- set column
+--vim.opt.colorcolumn = '120'
+vim.opt.colorcolumn = '80'
 
 -- INFO: remaps ---
 -- right now using autopair plugin
