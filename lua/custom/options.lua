@@ -45,20 +45,43 @@ vim.opt.colorcolumn = '80'
 -- Search only inside the folder Nvim-tree is focussed on
 -- search FILES inside the netrw directory
 
-vim.keymap.set('n', '<leader>sF', function()
-  -- netrw exposes the current banner directory in b:netrw_curdir
-  local cwd = vim.b.netrw_curdir or vim.loop.cwd()
-  require('telescope.builtin').find_files {
-    cwd = cwd,
-    prompt_title = 'Files in ' .. vim.fn.fnamemodify(cwd, ':t'),
-  }
-end, { desc = '[S]earch [F]iles in netrw dir' })
-
--- LIVE-GREP inside the netrw directory
-vim.keymap.set('n', '<leader>sG', function()
-  local cwd = vim.b.netrw_curdir or vim.loop.cwd()
+vim.api.nvim_create_user_command('LGHere', function()
   require('telescope.builtin').live_grep {
-    cwd = cwd,
-    prompt_title = 'Grep in ' .. vim.fn.fnamemodify(cwd, ':t'),
+    cwd = vim.fn.expand '%:p:h',
   }
-end, { desc = '[S]earch by [G]rep in netrw dir' })
+end, {})
+
+-- Search in current file's directory
+vim.keymap.set('n', '<leader>fg', function()
+  require('telescope.builtin').live_grep {
+    cwd = vim.fn.expand '%:p:h',
+  }
+end)
+
+-- Or for find_files
+vim.keymap.set('n', '<leader>ff', function()
+  require('telescope.builtin').find_files {
+    cwd = vim.fn.expand '%:p:h',
+  }
+end)
+
+-- Optionally, add more keymaps:
+vim.keymap.set('n', '<leader>fh', function()
+  print('File directory: ' .. vim.fn.expand '%:p:h')
+end, { desc = 'Show file directory path' })
+
+--
+-- Add which-key specifications AFTER your keymaps
+-- Add this at the END of your file
+local wk = require 'which-key'
+wk.add {
+  -- Group name (prefix)
+  { '<leader>f', group = 'File directory' },
+
+  { '<leader>fg', desc = 'Live grep in file directory' },
+  { '<leader>ff', desc = 'Find files in file directory' },
+  { '<leader>fh', desc = 'Show file directory path' },
+
+  -- Another group
+  { '<leader>c', group = 'Code' },
+}
