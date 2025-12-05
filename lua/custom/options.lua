@@ -70,6 +70,13 @@ vim.keymap.set('n', '<leader>fh', function()
   print('File directory: ' .. vim.fn.expand '%:p:h')
 end, { desc = 'Show file directory path' })
 
+vim.keymap.set('n', '<leader>fr', function()
+  require('telescope.builtin').lsp_references {
+    --  include_declaration = false
+    --  show_line = true,
+  }
+end, { desc = 'Find references to this function' })
+
 --
 -- Add which-key specifications AFTER your keymaps
 -- Add this at the END of your file
@@ -81,6 +88,7 @@ wk.add {
   { '<leader>fg', desc = 'Live grep in file directory' },
   { '<leader>ff', desc = 'Find files in file directory' },
   { '<leader>fh', desc = 'Show file directory path' },
+  { '<leader>fr', desc = 'Show references (with lsp_reference)' },
 
   -- Another group
   { '<leader>c', group = 'Code' },
