@@ -7,6 +7,9 @@ else
   print 'Copilot is enabled'
   return {
     'zbirenbaum/copilot.lua',
+    requires = {
+      'copilotlsp-nvim/copilot-lsp', -- optional for NES functionality
+    },
     event = 'InsertEnter', -- lazy load on insert
     config = function()
       require('copilot').setup {
@@ -28,7 +31,7 @@ else
           hide_during_completion = true,
         },
         -- optional: if you want to try selecting a completion model (experimental)
-        -- copilot_model = "gpt-4o-copilot",
+        -- copilot_model = 'gpt-4o-copilot',
         -- see discussion/issues about model selection for copilot.lua usage.
       }
       -- common keymaps: accept suggestion with Tab in insert
@@ -48,6 +51,7 @@ else
       config = function()
         -- default setup; tune opts as you like
         require('CopilotChat').setup {
+          -- model = 'gpt-5-mini',
           -- keep default options; plugin provides commands and keymaps listed below
         }
 
@@ -69,35 +73,3 @@ else
     },
   }
 end
---else
---  print 'Copilot is enabled'
---  return {
---    -- ** COPILOT **
---    {
---      'github/copilot.vim',
---      config = function()
---        vim.g.copilot_filetypes = { markdown = false, xml = true }
---
---        -- default next for copilot is Alt+] and previous is Alt+[
---        --
---        -- vim.api.nvim_set_keymap("i", "<C-j>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
---        -- vim.api.nvim_set_keymap("i", "<C-[>", 'copilot#Previous()', { silent = true, expr = true })
---        -- vim.api.nvim_set_keymap("i", "<C-]>", 'copilot#Next()', { silent = true, expr = true })
---      end,
---    },
---    -- ** COPILOT - CHAT **
---    {
---      'CopilotC-Nvim/CopilotChat.nvim',
---      dependencies = {
---        { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
---        { 'nvim-lua/plenary.nvim', branch = 'master' }, -- for curl, log wrapper
---      },
---      build = 'make tiktoken', -- Only on MacOS or Linux
---      opts = {
---        debug = true, -- Enable debugging
---        -- See Configuration section for rest
---      },
---      -- See Commands section for default commands if you want to lazy load on them
---    },
---  }
---end
