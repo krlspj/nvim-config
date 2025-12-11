@@ -1,6 +1,9 @@
-local isActive = false
+local enabled = (vim.env.COPILOT_ENABLED == 'true')
 
-if isActive then
+if not enabled then
+  --print 'copilot is disable'
+  return {}
+else
   print 'Copilot is enabled'
   return {
     -- ** COPILOT **
@@ -31,7 +34,4 @@ if isActive then
       -- See Commands section for default commands if you want to lazy load on them
     },
   }
-else
-  --print 'copilot is disable'
-  return {}
 end
