@@ -66,7 +66,7 @@ vim.keymap.set('n', '<leader>ff', function()
 end)
 
 -- Optionally, add more keymaps:
-vim.keymap.set('n', '<leader>fh', function()
+vim.keymap.set('n', '<leader>sp', function()
   print('File directory: ' .. vim.fn.expand '%:p:h')
 end, { desc = 'Show file directory path' })
 
@@ -87,9 +87,10 @@ wk.add {
 
   { '<leader>fg', desc = 'Live grep in file directory' },
   { '<leader>ff', desc = 'Find files in file directory' },
-  { '<leader>fh', desc = 'Show file directory path' },
   { '<leader>fr', desc = 'Show references (with lsp_reference)' },
 
   -- Another group
   { '<leader>c', group = 'Code' },
+
+  { '<leader>sp', desc = '[S]how file directory [P]ath' },
 }
