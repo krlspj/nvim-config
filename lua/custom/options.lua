@@ -77,6 +77,14 @@ vim.keymap.set('n', '<leader>fr', function()
   }
 end, { desc = 'Find references to this function' })
 
+-- navigate to function signature ONLY works in go
+vim.keymap.set('n', '[[', function()
+  vim.fn.search([[\v^func]], 'bW') -- Backward search for 'func' at line start
+end, { silent = true })
+vim.keymap.set('n', ']]', function()
+  vim.fn.search([[\v^func]], 'W') -- Forward search
+end, { silent = true })
+
 --
 -- Add which-key specifications AFTER your keymaps
 -- Add this at the END of your file
@@ -88,6 +96,8 @@ wk.add {
   { '<leader>fg', desc = 'Live grep in file directory' },
   { '<leader>ff', desc = 'Find files in file directory' },
   { '<leader>fr', desc = 'Show references (with lsp_reference)' },
+  { '[f', desc = 'Previous function start' },
+  { ']f', desc = 'Next function start' },
 
   -- Another group
   { '<leader>c', group = 'Code' },

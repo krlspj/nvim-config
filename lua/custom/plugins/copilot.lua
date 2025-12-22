@@ -1,4 +1,4 @@
-local enabled = (vim.env.COPILOT_ENABLED == 'true')
+local enabled = (vim.env.AI_COPILOT == 'true')
 
 if not enabled then
   --print 'copilot is disable'
